@@ -8,9 +8,10 @@ import Home from "./containers/Home/Home";
 import Search from "./containers/Search/Search";
 
 function BooksApp() {
+  const [allBooks, setAllBooks] = useState([]);
+
   useEffect(async () => {
-    // const all = BooksAPI.getAll();
-    // console.log(await BooksAPI.getAll());
+    setAllBooks(await BooksAPI.getAll());
   }, []);
 
   return (
@@ -18,7 +19,7 @@ function BooksApp() {
       <div className="app">
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Home allBooks={allBooks} />
           </Route>
           <Route exact path="/search">
             <Search />

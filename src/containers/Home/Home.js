@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 
 import Bookshelf from "./Bookshelf";
 
-function Home() {
+function Home({ allBooks }) {
   const history = useHistory();
   const handleClickSearch = () => history.push("/search");
 
@@ -13,7 +13,18 @@ function Home() {
         <h1>MyReads</h1>
       </div>
       <div className="list-books-content">
-        <Bookshelf />
+        <Bookshelf
+          title="Currently Reading"
+          books={allBooks.filter((book) => book.shelf === "currentlyReading")}
+        />
+        <Bookshelf
+          title="Want to Read"
+          books={allBooks.filter((book) => book.shelf === "wantToRead")}
+        />
+        <Bookshelf
+          title="Read"
+          books={allBooks.filter((book) => book.shelf === "read")}
+        />
       </div>
       <div className="open-search">
         <button onClick={handleClickSearch}>Add a book</button>
