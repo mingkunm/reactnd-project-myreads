@@ -3,7 +3,6 @@ import React from "react";
 import Book from "../../components/Book";
 
 function Bookshelf({ title, books, resetShelf }) {
-  console.log(books);
   return (
     <div>
       <div className="bookshelf">
@@ -11,7 +10,7 @@ function Bookshelf({ title, books, resetShelf }) {
         <div className="bookshelf-books">
           <ol className="books-grid">
             {books.map((book) => (
-              <li key={book.title}>
+              <li key={book.id}>
                 <Book book={book} resetShelf={resetShelf} />
               </li>
             ))}

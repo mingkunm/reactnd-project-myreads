@@ -21,11 +21,16 @@ function Book({ book, resetShelf }) {
             style={{
               width: 128,
               height: 193,
-              backgroundImage: `url(${book.imageLinks.thumbnail})`,
+              backgroundImage: book.imageLinks
+                ? `url(${book.imageLinks.thumbnail})`
+                : "",
             }}
           />
           <div className="book-shelf-changer">
-            <select defaultValue={book.shelf} onChange={handleShelfChange}>
+            <select
+              defaultValue={book.shelf || "none"}
+              onChange={handleShelfChange}
+            >
               <option value="move" disabled>
                 Move to...
               </option>
@@ -37,11 +42,12 @@ function Book({ book, resetShelf }) {
           </div>
         </div>
         <div className="book-title">{book.title}</div>
-        {book.authors.map((author, index) => (
-          <div className="book-authors" key={index}>
-            {author}
-          </div>
-        ))}
+        {book.authors &&
+          book.authors.map((author, index) => (
+            <div className="book-authors" key={index}>
+              {author}
+            </div>
+          ))}
       </div>
     </div>
   );

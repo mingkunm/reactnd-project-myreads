@@ -9,34 +9,41 @@ import Search from "./containers/Search/Search";
 
 function BooksApp() {
   const [allBooks, setAllBooks] = useState([]);
+  const [booksShelf, setBooksShelf] = useState({});
 
-  const bookTitles = new Set();
-  const initialSet = (books) => {
+  const initialShelf = (books) => {
+    const bookWithShelf = {};
+
     books.forEach((book) => {
-      bookTitles.add(book.title);
+      bookWithShelf[book.id] = book.shelf;
     });
+
+    setBooksShelf(bookWithShelf);
   };
 
   useEffect(async () => {
     const books = await BooksAPI.getAll();
 
     setAllBooks(books);
-    initialSet(books);
+    initialShelf(books);
   }, []);
 
   const resetShelf = (updateValue, updateBook) => {
     let updatedBooks;
 
-    if (updateValue === "none" && bookTitles.has(updateBook.title)) {
+    if (updateValue === "none" && booksShelf[updateBook.id]) {
       updatedBooks = allBooks.filter((book) => book.title !== updateBook.title);
-      bookTitles.delete(updateBook.title);
+    } else if (!booksShelf[updateBook.id]) {
+      updateBook.shelf = updateValue;
+      updatedBooks = [...allBooks, updateBook];
     } else {
       updatedBooks = allBooks.map((book) =>
-        book.title === updateBook.title ? { ...book, shelf: updateValue } : book
+        book.id === updateBook.id ? { ...book, shelf: updateValue } : book
       );
     }
 
     setAllBooks(updatedBooks);
+    setBooksShelf({ ...booksShelf, [updateBook.id]: updateValue });
   };
 
   return (
@@ -45,11 +52,11 @@ function BooksApp() {
         <Switch>
           <Route exact path="/">
             {allBooks.length > 0 && (
-              <Home books={allBooks} resetShelf={resetShelf} />
+              <Home exact books={allBooks} resetShelf={resetShelf} />
             )}
           </Route>
           <Route exact path="/search">
-            <Search />
+            <Search resetShelf={resetShelf} booksShelf={booksShelf} />
           </Route>
         </Switch>
       </div>
