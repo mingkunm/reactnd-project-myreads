@@ -2,7 +2,14 @@ import React from "react";
 
 import { update } from "../BooksAPI";
 
+/**
+ * @description Display single book
+ */
 function Book({ book, resetShelf }) {
+  /**
+   * @description Handle book's shelf change
+   * @param {object} e - event
+   */
   const handleShelfChange = async (e) => {
     const options = e.target.options;
     const value = options[options.selectedIndex].value;

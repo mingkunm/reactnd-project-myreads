@@ -4,12 +4,22 @@ import { useHistory } from "react-router-dom";
 import Book from "../../components/Book";
 import { search } from "../../BooksAPI";
 
+/**
+ * @description Search page
+ */
 function Search({ resetShelf, booksShelf }) {
   const [searchResult, setSearchResult] = useState([]);
 
   const history = useHistory();
+  /**
+   * @description Go to home page
+   */
   const handleClickHome = () => history.push("/");
 
+  /**
+   * @description Handle search box input change
+   * @param {object} e - event
+   */
   const handleInputChange = async (e) => {
     const input = e.target.value;
 

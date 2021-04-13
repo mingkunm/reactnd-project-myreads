@@ -3,8 +3,14 @@ import { useHistory } from "react-router-dom";
 
 import BookContent from "./BooksContent";
 
+/**
+ * @description Display content of home page
+ */
 function Home({ books, resetShelf }) {
   const history = useHistory();
+  /**
+   * @description Go to search page
+   */
   const handleClickSearch = () => history.push("/search");
 
   return (

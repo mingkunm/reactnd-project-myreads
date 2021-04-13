@@ -11,6 +11,20 @@ function BooksApp() {
   const [allBooks, setAllBooks] = useState([]);
   const [booksShelf, setBooksShelf] = useState({});
 
+  /**
+   * @description Get all books on the shelf
+   */
+  useEffect(async () => {
+    const books = await BooksAPI.getAll();
+
+    setAllBooks(books);
+    initialShelf(books);
+  }, []);
+
+  /**
+   * @description Initial shelf
+   * @param {array} books - All books on the shelf
+   */
   const initialShelf = (books) => {
     const bookWithShelf = {};
 
@@ -21,13 +35,11 @@ function BooksApp() {
     setBooksShelf(bookWithShelf);
   };
 
-  useEffect(async () => {
-    const books = await BooksAPI.getAll();
-
-    setAllBooks(books);
-    initialShelf(books);
-  }, []);
-
+  /**
+   * @description Set book to shelf
+   * @param {string} updateValue - The new shelf where the book will be located
+   * @param {object} updateBook - The book whose shelf will be updated
+   */
   const resetShelf = (updateValue, updateBook) => {
     let updatedBooks;
 
@@ -38,12 +50,20 @@ function BooksApp() {
       updatedBooks = [...allBooks, updateBook];
     } else {
       updatedBooks = allBooks.map((book) =>
-        book.id === updateBook.id ? { ...book, shelf: updateValue } : book
+        book.id === updateBook.id
+          ? {
+              ...book,
+              shelf: updateValue,
+            }
+          : book
       );
     }
 
     setAllBooks(updatedBooks);
-    setBooksShelf({ ...booksShelf, [updateBook.id]: updateValue });
+    setBooksShelf({
+      ...booksShelf,
+      [updateBook.id]: updateValue,
+    });
   };
 
   return (

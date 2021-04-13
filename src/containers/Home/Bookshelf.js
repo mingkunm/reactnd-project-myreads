@@ -2,6 +2,9 @@ import React from "react";
 
 import Book from "../../components/Book";
 
+/**
+ * @description Map books which has same shelf on the shelf
+ */
 function Bookshelf({ title, books, resetShelf }) {
   return (
     <div>
