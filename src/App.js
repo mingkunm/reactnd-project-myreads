@@ -70,7 +70,7 @@ function BooksApp() {
   };
 
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <div className="app">
         <Switch>
           <Route exact path="/">
