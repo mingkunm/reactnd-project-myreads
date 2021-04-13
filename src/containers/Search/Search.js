@@ -14,12 +14,14 @@ function Search({ resetShelf, booksShelf }) {
     const input = e.target.value;
     const books = input && (await search(input));
 
-    if (books) {
+    if (books.length > 0) {
       books.forEach((book) => {
         if (booksShelf[book.id]) book.shelf = booksShelf[book.id];
       });
 
       setSearchResult(books);
+    } else {
+      setSearchResult([]);
     }
   };
 
