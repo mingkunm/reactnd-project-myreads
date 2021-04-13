@@ -1,9 +1,9 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-import Bookshelf from "./Bookshelf";
+import BookContent from "./BooksContent";
 
-function Home({ allBooks }) {
+function Home({ books, resetShelf }) {
   const history = useHistory();
   const handleClickSearch = () => history.push("/search");
 
@@ -12,20 +12,7 @@ function Home({ allBooks }) {
       <div className="list-books-title">
         <h1>MyReads</h1>
       </div>
-      <div className="list-books-content">
-        <Bookshelf
-          title="Currently Reading"
-          books={allBooks.filter((book) => book.shelf === "currentlyReading")}
-        />
-        <Bookshelf
-          title="Want to Read"
-          books={allBooks.filter((book) => book.shelf === "wantToRead")}
-        />
-        <Bookshelf
-          title="Read"
-          books={allBooks.filter((book) => book.shelf === "read")}
-        />
-      </div>
+      <BookContent books={books} resetShelf={resetShelf} />
       <div className="open-search">
         <button onClick={handleClickSearch}>Add a book</button>
       </div>

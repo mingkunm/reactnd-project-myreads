@@ -1,6 +1,17 @@
 import React from "react";
 
-function Book({ book }) {
+import { update } from "../BooksAPI";
+
+function Book({ book, resetShelf }) {
+  const handleShelfChange = async (e) => {
+    const options = e.target.options;
+    const value = options[options.selectedIndex].value;
+
+    await update(book, value);
+
+    resetShelf(value, book);
+  };
+
   return (
     <div>
       <div className="book">
@@ -14,7 +25,7 @@ function Book({ book }) {
             }}
           />
           <div className="book-shelf-changer">
-            <select>
+            <select defaultValue={book.shelf} onChange={handleShelfChange}>
               <option value="move" disabled>
                 Move to...
               </option>
