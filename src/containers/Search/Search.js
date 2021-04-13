@@ -12,14 +12,19 @@ function Search({ resetShelf, booksShelf }) {
 
   const handleInputChange = async (e) => {
     const input = e.target.value;
-    const books = input && (await search(input));
 
-    if (books.length > 0) {
-      books.forEach((book) => {
-        if (booksShelf[book.id]) book.shelf = booksShelf[book.id];
-      });
+    if (input) {
+      const books = await search(input);
 
-      setSearchResult(books);
+      if (books.length > 0) {
+        books.forEach((book) => {
+          if (booksShelf[book.id]) book.shelf = booksShelf[book.id];
+        });
+
+        setSearchResult(books);
+      } else {
+        setSearchResult([]);
+      }
     } else {
       setSearchResult([]);
     }
