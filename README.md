@@ -10,6 +10,10 @@ To get started developing right away:
 
 - start the development server with `npm start`
 
+## View demo
+
+[http://mingkunm.github.io/reactnd-project-myreads-starter](http://mingkunm.github.io/reactnd-project-myreads-starter)
+
 ## App Functionality
 
 ### Main Page
