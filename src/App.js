@@ -44,7 +44,10 @@ function BooksApp() {
     let updatedBooks;
 
     if (updateValue === "none" && booksShelf[updateBook.id]) {
-      updatedBooks = allBooks.filter((book) => book.title !== updateBook.title);
+      updatedBooks = allBooks.filter((book) => book.id !== updateBook.id);
+      setAllBooks(updatedBooks);
+      setBooksShelf({ ...booksShelf, [updateBook.id]: "" });
+      return;
     } else if (!booksShelf[updateBook.id]) {
       updateBook.shelf = updateValue;
       updatedBooks = [...allBooks, updateBook];
