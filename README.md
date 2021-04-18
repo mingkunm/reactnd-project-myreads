@@ -12,7 +12,7 @@ To get started developing right away:
 
 ## View demo
 
-[https://mingkunm.github.io/reactnd-project-myreads-starter/](https://mingkunm.github.io/reactnd-project-myreads-starter/)
+[https://mingkunm.github.io/reactnd-project-myreads/](https://mingkunm.github.io/reactnd-project-myreads/)
 
 ## App Functionality
 

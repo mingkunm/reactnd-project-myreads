@@ -1,14 +1,14 @@
 {
-  "main.css": "/reactnd-project-myreads-starter/static/css/main.995a74f2.chunk.css",
-  "main.js": "/reactnd-project-myreads-starter/static/js/main.7b5626f2.chunk.js",
-  "main.js.map": "/reactnd-project-myreads-starter/static/js/main.7b5626f2.chunk.js.map",
-  "static/js/1.740c84f9.chunk.js": "/reactnd-project-myreads-starter/static/js/1.740c84f9.chunk.js",
-  "static/js/1.740c84f9.chunk.js.map": "/reactnd-project-myreads-starter/static/js/1.740c84f9.chunk.js.map",
-  "runtime~main.js": "/reactnd-project-myreads-starter/static/js/runtime~main.83f7d75c.js",
-  "runtime~main.js.map": "/reactnd-project-myreads-starter/static/js/runtime~main.83f7d75c.js.map",
-  "static/media/App.css": "/reactnd-project-myreads-starter/static/media/arrow-back.3687aa98.svg",
-  "static/css/main.995a74f2.chunk.css.map": "/reactnd-project-myreads-starter/static/css/main.995a74f2.chunk.css.map",
-  "index.html": "/reactnd-project-myreads-starter/index.html",
-  "precache-manifest.a854e804fa07dace1130690c1f2b89dc.js": "/reactnd-project-myreads-starter/precache-manifest.a854e804fa07dace1130690c1f2b89dc.js",
-  "service-worker.js": "/reactnd-project-myreads-starter/service-worker.js"
+  "main.css": "/reactnd-project-myreads/static/css/main.5f6e4d1b.chunk.css",
+  "main.js": "/reactnd-project-myreads/static/js/main.934eca3b.chunk.js",
+  "main.js.map": "/reactnd-project-myreads/static/js/main.934eca3b.chunk.js.map",
+  "static/js/1.740c84f9.chunk.js": "/reactnd-project-myreads/static/js/1.740c84f9.chunk.js",
+  "static/js/1.740c84f9.chunk.js.map": "/reactnd-project-myreads/static/js/1.740c84f9.chunk.js.map",
+  "runtime~main.js": "/reactnd-project-myreads/static/js/runtime~main.d2f8cf40.js",
+  "runtime~main.js.map": "/reactnd-project-myreads/static/js/runtime~main.d2f8cf40.js.map",
+  "static/media/App.css": "/reactnd-project-myreads/static/media/arrow-drop-down.78c6f53b.svg",
+  "static/css/main.5f6e4d1b.chunk.css.map": "/reactnd-project-myreads/static/css/main.5f6e4d1b.chunk.css.map",
+  "index.html": "/reactnd-project-myreads/index.html",
+  "precache-manifest.66180d6778b63b7d68949ece6514010e.js": "/reactnd-project-myreads/precache-manifest.66180d6778b63b7d68949ece6514010e.js",
+  "service-worker.js": "/reactnd-project-myreads/service-worker.js"
 }
